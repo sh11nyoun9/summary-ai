@@ -5,16 +5,15 @@
 ## 개요
 
 - **서비스 명**: 작품 요약 AI
-- **서비스 설명**: 사용자가 **작품의 유형(영화/책)**과 **제목**을 입력하면, Gemini AI가 해당 작품의 줄거리를 핵심만 요약해 알려준다.
+- **서비스 설명**: 사용자가 **작품의 유형**(**영화/책**)*과 **제목**을 입력하면, Gemini AI가 해당 작품의 줄거리를 핵심만 요약해 알려준다.
 - **서비스 접속 주소**:  
-  🔗 프론트엔드: [https://sh11nyoun9.github.io/summary-ai](https://sh11nyoun9.github.io/summary-ai)  
-  🔗 백엔드 API: [https://assign2-eta-tawny.vercel.app/api/summaryAI](https://assign2-eta-tawny.vercel.app/api/summaryAI)
+  🔗 서비스 접속 주소: [https://sh11nyoun9.github.io/summary-ai](https://sh11nyoun9.github.io/summary-ai)
 
 ---
 
 ## 서비스 구성 요소 (1) - Gemini API
 
-- 작품 요약을 위해 Google LLM 플랫폼인 Gemini API의 `**gemini-1.5-flash**` 모델을 사용
+- 작품 요약을 위해 Google LLM 플랫폼인 Gemini API의 **gemini-1.5-flash** 모델을 사용
 - **프롬프트 설계**:
   - 작품 유형과 제목을 입력 받아 요약 요청
   - LLM에게 **사전 지식이 있는 요약 전문가 역할**을 부여
@@ -35,8 +34,8 @@
 
 ## 서비스 구성 요소 (3) - 백엔드
 
-- Google Gemini API 호출을 위한 **Serverless API(요청이 들어올 때만 자동으로 실행되는 백엔드 함수)**를 작성하여 Vercel에 배포
-- Google Gemini API 키가 외부에 노출되지 않도록 프론트엔드가 사용자 입력을 **백엔드(Serverless API)**로 전송하고, 백엔드가 Gemini API를 대신 호출한 뒤 응답을 반환하는 구조로 구현
+- Google Gemini API 호출을 위한 **Serverless API**(요청이 들어올 때만 자동으로 실행되는 백엔드 함수)를 작성하여 Vercel에 배포
+- Google Gemini API 키가 외부에 노출되지 않도록 프론트엔드가 사용자 입력을 **백엔드**(Serverless API)로 전송하고, 백엔드가 Gemini API를 대신 호출한 뒤 응답을 반환하는 구조로 구현
 - 프론트에서 전달받은 `type`, `title`을 기반으로 Gemini에 요청 → 요약 응답 전달
 - CORS 설정을 통해, 내 API가 오직 내 GitHub Pages 프론트엔드에서만 접근 가능하도록 제한함(= 보안 강화 + 불필요한 호출 차단) (`sh11nyoun9.github.io`)
 - 작성한 API 경로: `/api/summaryAI`
