@@ -46,7 +46,7 @@
           const data = await response.json();
 
           if (response.ok) {
-            resultDiv.textContent = data.result || "요약 결과가 없습니다.";
+            resultDiv.textContent = data.result;
           } else {
             resultDiv.textContent = `오류: ${data.error}`;
           }
