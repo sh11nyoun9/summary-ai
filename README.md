@@ -38,4 +38,4 @@
 - 프론트에서 전달받은 `type`, `title`을 기반으로 Gemini에 요청 → 요약 응답 전달
 - CORS 설정을 통해, 내 API가 오직 내 GitHub Pages 프론트엔드에서만 접근 가능하도록 제한함(= 보안 강화 + 불필요한 호출 차단) (`sh11nyoun9.github.io`)
 - 작성한 API 경로: `/api/summaryAI`
-- 코드 및 구현 내용은 `https://github.com/sh11nyoun9/summary-ai-api` 참고
+- 코드 및 구현 내용은 [https://github.com/sh11nyoun9/summary-ai-api](https://github.com/sh11nyoun9/summary-ai-api) 참고
