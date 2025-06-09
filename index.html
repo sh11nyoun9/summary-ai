@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>작품 요약 AI</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>영화/책 줄거리 요약 AI</h1>
+      <form id="summary-form">
+        <label for="type">작품 유형 (예: 영화, 책)</label>
+        <input type="text" id="type" name="type" placeholder="예: 영화" required />
+
+        <label for="title">작품 제목</label>
+        <input type="text" id="title" name="title" placeholder="예: 인터스텔라" required />
+
+        <button type="submit">줄거리 요약 요청</button>
+      </form>
+
+      <div id="result" class="result-box"></div>
+    </div>
+
+    <script>
+      const form = document.getElementById("summary-form");
+      const resultDiv = document.getElementById("result");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const type = document.getElementById("type").value;
+        const title = document.getElementById("title").value;
+
+        resultDiv.textContent = "요약을 불러오는 중입니다...";
+
+        try {
+          const response = await fetch("https://vercel-test-rose-eta.vercel.app/api/duksungAI", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ type, title }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            resultDiv.textContent = data.result || "요약 결과가 없습니다.";
+          } else {
+            resultDiv.textContent = `오류: ${data.error}`;
+          }
+        } catch (err) {
+          resultDiv.textContent = "서버와 통신 중 오류가 발생했습니다.";
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>
