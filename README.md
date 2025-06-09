@@ -6,8 +6,7 @@
 
 - **서비스 명**: 작품 요약 AI
 - **서비스 설명**: 사용자가 **작품의 유형**(**영화/책**)*과 **제목**을 입력하면, Gemini AI가 해당 작품의 줄거리를 핵심만 요약해 알려준다.
-- **서비스 접속 주소**:  
-  🔗 서비스 접속 주소: [https://sh11nyoun9.github.io/summary-ai](https://sh11nyoun9.github.io/summary-ai)
+- **서비스 접속 주소**: [https://sh11nyoun9.github.io/summary-ai](https://sh11nyoun9.github.io/summary-ai)
 
 ---
 
