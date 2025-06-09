@@ -46,7 +46,7 @@
           const data = await response.json();
 
           if (response.ok) {
-            resultDiv.textContent = data.result;
+            resultDiv.textContent = data.answer;
           } else {
             resultDiv.textContent = `오류: ${data.error}`;
           }
